@@ -40,7 +40,7 @@ pub fn process_csv(input: &str, output: &str, format: OutputFormat) -> anyhow::R
     let content = match format {
         OutputFormat::Json => serde_json::to_string_pretty(&ret)?,
         OutputFormat::Yaml => serde_yaml::to_string(&ret)?,
-        OutputFormat::Toml => toml::to_string_pretty(&ret)?,
+        // OutputFormat::Toml => toml::to_string_pretty(&ret)?,
     };
 
     fs::write(output, content)?; // => () unit
